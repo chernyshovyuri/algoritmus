@@ -1,18 +1,15 @@
-from src.functions import sum_even_numbers
+from src.core import run_sum_even_numbers, run_frequent_elements
+
+
 # from viewer.mainwindow import App
-import random
+
 
 def main():
 
-    qyantitu = random.randint(1, 100000)
-    left = -20000
-    right = 20000
-    array = [random.randint(left, right) for _ in range(qyantitu)]
-    summ_event_numbers = sum_even_numbers(array)
-    print(f'Numbers of elements {qyantitu}')
-    print(summ_event_numbers)
-    print('='*20)
 
+    run_sum_even_numbers()
+
+    run_frequent_elements()
 
 
 if __name__ == '__main__':
