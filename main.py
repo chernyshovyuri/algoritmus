@@ -1,4 +1,4 @@
-from src.core import run_sum_even_numbers, run_frequent_elements
+from src.core import run_sum_even_numbers, run_frequent_elements, run_two_sum
 
 
 # from viewer.mainwindow import App
@@ -8,6 +8,8 @@ def main():
 
 
     run_sum_even_numbers()
+
+    run_two_sum()
 
     run_frequent_elements()
 

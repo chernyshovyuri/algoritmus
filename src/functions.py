@@ -50,6 +50,33 @@ def frequent_elements(array: list[int]) -> int:
 
     return elem_freq
 
+# 3
+
+def two_sum(nums: list[int], target: int) -> list[int]|None:
+    if not isinstance(nums, list):
+        raise TypeError()
+    if not isinstance(target, int):
+        raise TypeError()
+
+    if not nums:
+        raise ValueError()
+
+    if target < -109 or target > 109:
+        raise ValueError()
+
+
+    for i in range (len(nums)):
+        for j in range (i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i,j]
+
+    return None
+
+
+
+
+
+
 
 
 

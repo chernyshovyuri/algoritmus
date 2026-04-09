@@ -1,6 +1,6 @@
 import pytest
 
-from src.functions import sum_even_numbers, frequent_elements
+from src.functions import sum_even_numbers, frequent_elements, two_sum
 
 
 def test_incorrect_type():
@@ -71,5 +71,28 @@ def test_mixed_negative_positive_zero_numbers():
     assert frequent_elements([-1,0,1]) == -1, 'result -1'
 
 
+@pytest.mark.parametrize('nums, target',
+                         [
+                             (1, 3),
+                             ([1, 2, 5], 'h')
+
+                         ])
+
+def test_incorrect_type(nums, target):
+    with pytest.raises(TypeError):
+        two_sum(nums, target)
+
+@pytest.mark.parametrize('nums, target, result',
+                         [
+                             ([1,2,3], 3, [0,1] ),
+                              ([1,2,3], 5, [1,2]),
+                             ([1,2,3], 7, None),
+                            ([0,0,0,0], 0, [0,1]),
+                             ([-1,-2,-3], -3, [0,1])
+
+
+                         ])
+def test_two_sum(nums, target, result):
+    assert two_sum(nums, target) == result
 
 
