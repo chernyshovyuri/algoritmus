@@ -1,4 +1,4 @@
-import random
+
 # 1
 
 def sum_even_numbers(array: list[int]) -> int:

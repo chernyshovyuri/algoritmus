@@ -1,5 +1,5 @@
 import random
-from src.functions import sum_even_numbers, frequent_elements, two_sum
+from src.homework_1 import sum_even_numbers, frequent_elements, two_sum
 import time
 import plotext as plt
 

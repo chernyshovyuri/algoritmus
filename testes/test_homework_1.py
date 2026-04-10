@@ -1,6 +1,6 @@
 import pytest
 
-from src.functions import sum_even_numbers, frequent_elements, two_sum
+from src.homework_1 import sum_even_numbers, frequent_elements, two_sum
 
 
 def test_incorrect_type():
