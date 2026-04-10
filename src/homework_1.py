@@ -59,7 +59,7 @@ def two_sum(nums: list[int], target: int) -> list[int]|None:
         raise TypeError()
 
     if not nums:
-        raise ValueError()
+        return None
 
     if target < -109 or target > 109:
         raise ValueError()

@@ -2,7 +2,7 @@ import random
 from src.homework_1 import sum_even_numbers, frequent_elements, two_sum
 import time
 import plotext as plt
-
+from src.homework_2 import factorial
 
 def run_sum_even_numbers():
 
@@ -22,9 +22,11 @@ def run_sum_even_numbers():
 
         y.append(result_time)
 
+    plt.clear_figure()
     plt.plot(y)
     plt.title("График суммы чисел")
     plt.show()
+
 
     print(f'Numbers of elements {qyantity}')
     print(f'Summ nambors {functions}')
@@ -75,10 +77,11 @@ def run_two_sum():
 
         result_time = end_time - start_time
         x.append(result_time)
-
+    plt.clear_figure()
     plt.plot(x)
     plt.title("График индексов 2 чисел")
     plt.show()
+
 
 
 
@@ -86,6 +89,40 @@ def run_two_sum():
     print(f'Result:{result}')
     print(f'Time{end_time - start_time}')
     print('= ' * 20)
+
+    return result
+
+
+def run_factorial():
+
+    n = random.randint(0, 20)
+
+    z = []
+    for i in range(5):
+        start_time = time.perf_counter()
+        result = factorial(n)
+        end_time = time.perf_counter()
+
+        result_time = end_time - start_time
+        z.append(result_time)
+    plt.clear_figure()
+    plt.plot(z)
+    plt.title("График факториала")
+    plt.show()
+
+
+    print(f"N: {n}")
+    print(f'Factorial: {result}')
+    print(f'Time{end_time - start_time}')
+    print('= ' * 20)
+
+    return result
+
+
+
+
+
+
 
 
 
