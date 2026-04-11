@@ -29,6 +29,32 @@ def fibonaci(n: int | float)-> list[int|float] | None:
 
     return fib_list
 
+def count_ones(n: int) -> int| None:
+    if not isinstance(n, int):
+        raise TypeError()
+
+    if n < 0:
+        return None
+
+    if n == 0:
+        return 0
+
+    count =0
+    while n > 0:
+        if n % 2 == 1:
+            count += 1
+        n //= 2
+
+    return count
+
+
+
+
+
+
+
+
+
 
 
 

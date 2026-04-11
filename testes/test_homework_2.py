@@ -1,6 +1,6 @@
 import pytest
 
-from src.homework_2 import factorial, fibonaci
+from src.homework_2 import factorial, fibonaci, count_ones
 
 
 def test_incorrect_type():
@@ -44,3 +44,24 @@ def test_n_equal_to_one():
 
 def test_fibonaci(n, expected):
     assert fibonaci(n) == expected
+
+def test_incorrect_type():
+    with pytest.raises(TypeError):
+        count_ones('g')
+
+@pytest.mark.parametrize('input, result', [
+    (-1, None),
+    (0, 0),
+    (1, 1),
+    (2, 1),
+    (3, 2),
+    (5, 2),
+    (25, 3),
+    (100, 3),
+    (260, 2),
+    (255, 8)
+
+])
+
+def test_count_ones(input, result):
+    assert count_ones(input) == result
