@@ -1,6 +1,6 @@
 import pytest
 
-from src.homework_2 import factorial, fibonaci, count_ones
+from src.homework_2 import factorial, fibonaci, count_ones, palindrome
 
 
 def test_incorrect_type():
@@ -65,3 +65,25 @@ def test_incorrect_type():
 
 def test_count_ones(input, result):
     assert count_ones(input) == result
+
+def test_incorrect_type():
+    with pytest.raises(TypeError):
+        palindrome('gfg')
+
+
+@pytest.mark.parametrize('input, result',[
+    (-1, None),
+    (0, True),
+    (1, True),
+    (121, True),
+    (244, False),
+    (-121, None),
+    (10, False),
+    (100, False),
+    (9, True),
+    (555, True),
+    (123456789987654321, True)
+])
+
+def test_palindrome(input, result):
+    assert palindrome(input) == result

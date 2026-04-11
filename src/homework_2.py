@@ -48,6 +48,27 @@ def count_ones(n: int) -> int| None:
     return count
 
 
+def palindrome(n: int) -> bool | None:
+    if not isinstance(n, int):
+        raise TypeError()
+
+    if n < 0:
+        return None
+
+    start_number = n
+    finish_number = 0
+    while n > 0:
+        digit = n % 10
+        finish_number = finish_number * 10 + digit
+        n //= 10
+
+    if start_number == finish_number:
+        return True
+
+    return False
+
+
+
 
 
 
