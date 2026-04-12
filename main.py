@@ -1,4 +1,5 @@
-from src.core import run_sum_even_numbers, run_frequent_elements, run_two_sum, run_factorial
+from src.core import run_sum_even_numbers, run_frequent_elements, run_two_sum, run_factorial, \
+    run_search_for_max_and_min_values
 import plotext as plt
 
 # from viewer.mainwindow import App
@@ -7,13 +8,16 @@ import plotext as plt
 def main():
 
 
-    run_sum_even_numbers()
+    # run_sum_even_numbers()
+    #
+    # run_two_sum()
+    #
+    # run_factorial()
+    #
+    # run_frequent_elements()
 
-    run_two_sum()
+    run_search_for_max_and_min_values()
 
-    run_factorial()
-
-    run_frequent_elements()
 
 
 

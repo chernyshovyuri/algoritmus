@@ -1,5 +1,8 @@
 import csv
 
+
+
+
 def factorial(n: int) -> int | None:
     if not isinstance(n, int):
         raise TypeError()
@@ -101,23 +104,66 @@ def reading_file(path: str, date_tuples: list) ->list:
     return date_tuples
 
 date_vlues = []
-reading_file("date_visitors.txt", date_vlues)
+reading_file("resources/date_visitors.txt", date_vlues)
+
+
+def record_table(result: tuple)-> None:
+
+    if not result:
+        return None
+
+    max1, max2, max3, min1, min2, min3 = result
+
+    with open('resources/date_visitors.csv', 'w', newline='', encoding='utf-8') as file:
+        file.write(f'Рейтинг, Дата, Посещаемость\n')
+        file.write(f'Максимум-1,{max1[0]},{max1[1]}\n')
+        file.write(f'Максимум-2,{max2[0]},{max2[1]}\n')
+        file.write(f'Максимум-3,{max3[0]},{max3[1]}\n')
+        file.write(f'Минимум-1,{min1[0]},{min1[1]}\n')
+        file.write(f'Минимум-2,{min2[0]},{min2[1]}\n')
+        file.write(f'Минимум-3,{min3[0]},{min3[1]}\n')
 
 
 
-def search_for_max_and_min_values(date:list)-> list | None:
+def search_for_max_and_min_values(date:list)-> tuple| None:
 
     if not date:
         return None
 
-    max_value = date[0]
-    min_value = date[0]
+    max_value = max_value_2 = max_value_3 =date[0]
+
+    min_value = min_value_2 = min_value_3 = date[0]
+
 
     for i in range(1, len(date)):
-        if date[i][1] > max_value[1]:
+        variable = date[i][1]
+
+        if variable > max_value[1]:
+            max_value_3 = max_value_2
+            max_value_2 = max_value
             max_value = date[i]
-        if date[i][1] < min_value[1]:
+        elif variable > max_value_2[1]:
+            max_value_3 = max_value_2
+            max_value_2 = date[i]
+        elif variable > max_value_3[1]:
+            max_value_3 = date[i]
+
+
+        if variable < min_value[1]:
+            min_value_3 = min_value_2
+            min_value_2 = min_value
             min_value = date[i]
+        elif variable < min_value_2[1]:
+            min_value_3 = min_value_2
+            min_value_2 = date[i]
+        elif variable < min_value_3[1]:
+            min_value_3 = date[i]
+
+    return (max_value, max_value_2, max_value_3, min_value, min_value_2, min_value_3)
+
+
+
+
 
 
 

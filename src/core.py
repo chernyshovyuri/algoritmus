@@ -2,7 +2,8 @@ import random
 from src.homework_1 import sum_even_numbers, frequent_elements, two_sum
 import time
 import plotext as plt
-from src.homework_2 import factorial
+from src.homework_2 import factorial, reading_file, search_for_max_and_min_values, record_table
+
 
 def run_sum_even_numbers():
 
@@ -117,6 +118,20 @@ def run_factorial():
     print('= ' * 20)
 
     return result
+
+
+def run_search_for_max_and_min_values() -> None:
+
+    date_values = []
+
+    reading_file('resources/date_visitors.txt', date_values)
+
+    result = search_for_max_and_min_values(date_values)
+
+    record_table(result)
+
+
+
 
 
 
