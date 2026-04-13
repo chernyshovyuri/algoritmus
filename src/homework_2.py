@@ -103,9 +103,6 @@ def reading_file(path: str, date_tuples: list) ->list:
 
     return date_tuples
 
-date_vlues = []
-reading_file("resources/date_visitors.txt", date_vlues)
-
 
 def record_table(result: tuple)-> None:
 
@@ -125,9 +122,13 @@ def record_table(result: tuple)-> None:
 
 
 
-def search_for_max_and_min_values(date:list)-> tuple| None:
+def search_for_max_and_min_values(date:list | tuple)-> tuple| None:
+    if not isinstance(date, (list, tuple)):
+        raise TypeError()
 
     if not date:
+        return None
+    if len(date) < 3:
         return None
 
     max_value = max_value_2 = max_value_3 =date[0]

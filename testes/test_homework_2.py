@@ -1,6 +1,6 @@
 import pytest
 
-from src.homework_2 import factorial, fibonaci, count_ones, palindrome
+from src.homework_2 import factorial, fibonaci, count_ones, palindrome, search_for_max_and_min_values
 
 
 def test_incorrect_type():
@@ -87,3 +87,17 @@ def test_incorrect_type():
 
 def test_palindrome(input, result):
     assert palindrome(input) == result
+
+def test_incorrect_type():
+    with pytest.raises(TypeError):
+        search_for_max_and_min_values(123)
+
+@pytest.mark.parametrize('input, result',[
+    ([('2023-01-01', 10), ('2023-01-02', 50), ('2023-01-03', 30), ('2023-01-04', 5), ('2023-01-05', 100)],
+     (('2023-01-05', 100), ('2023-01-02', 50), ('2023-01-03', 30),
+     ('2023-01-04', 5), ('2023-01-01', 10), ('2023-01-01', 10)))
+
+])
+
+def test_search_for_max_and_min_values(input, result):
+    assert search_for_max_and_min_values(input) == result
