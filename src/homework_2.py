@@ -1,8 +1,6 @@
 import csv
 
 
-
-
 def factorial(n: int) -> int | None:
     if not isinstance(n, int):
         raise TypeError()
@@ -15,6 +13,8 @@ def factorial(n: int) -> int | None:
         result *= i
 
     return result
+
+# O(n) = 1 + ((n + 1) - 1) * 1 + 1 = 1 + 2 * ((n+1) - 1) = 1 + 2*(n+1) - 1 = n + 2  -> O(n)
 
 def fibonaci(n: int | float)-> list[int|float] | None:
     if not isinstance(n, (int, float)):
@@ -31,6 +31,8 @@ def fibonaci(n: int | float)-> list[int|float] | None:
         fib_list.append(fib_list[-1] + fib_list[-2])
 
     return fib_list
+
+# O(n) = 1 + n * 1 + 1 + 1 + 1 = 1 + n * 4 = n + 4 = n -> O(n)
 
 def count_ones(n: int) -> int| None:
     if not isinstance(n, int):
@@ -49,6 +51,8 @@ def count_ones(n: int) -> int| None:
         n //= 2
 
     return count
+
+# O(n) = 1 + n + 1 + 1 + 1 + 1 = 1 + n + 4 = n + 5 = n -> O(n)
 
 
 def palindrome(n: int) -> bool | None:
@@ -70,6 +74,9 @@ def palindrome(n: int) -> bool | None:
 
     return False
 
+# O(n) = 1 + 1 + n + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 = 2 + n + 9 = n + 11 -> O(n)
+
+
 # Проблема:
 # Нужна программа котора будет обрабатывать посещаемость сайта. Необходимо пердоставить информацию о мах коичестве
 # посещаемости и минимальном кол. посещаемости в разрезе дней. Необходимо сделать срез по 3 дням, 3 дня с самым
@@ -86,7 +93,6 @@ def palindrome(n: int) -> bool | None:
 
 # Тестирование.
 # Позитивные, негативные, пограничные.
-
 
 
 def reading_file(path: str, date_tuples: list) ->list:
@@ -119,7 +125,6 @@ def record_table(result: tuple)-> None:
         file.write(f'Минимум-1,{min1[0]},{min1[1]}\n')
         file.write(f'Минимум-2,{min2[0]},{min2[1]}\n')
         file.write(f'Минимум-3,{min3[0]},{min3[1]}\n')
-
 
 
 def search_for_max_and_min_values(date:list | tuple)-> tuple| None:
@@ -161,6 +166,11 @@ def search_for_max_and_min_values(date:list | tuple)-> tuple| None:
             min_value_3 = date[i]
 
     return (max_value, max_value_2, max_value_3, min_value, min_value_2, min_value_3)
+
+# O(n) = 1 + 1 +1 + 1 +1 + 1 + (n-1) +1 +1 + 1 +1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1+ 1 + 1 +1 =
+#  6 + (n-1) + 21 = 6 + n - 1 + 21 = 5 + n + 21 = n + 26 -> O(n)
+
+
 
 
 
