@@ -1,6 +1,7 @@
 import pytest
 
-from src.homework_3 import max_in_range
+from src.homework_3 import max_in_range, rotate_and_reverse
+
 
 def test_incorrect_tape():
     with pytest.raises(TypeError):
@@ -28,5 +29,25 @@ def test_incorrect_tape():
 def test_max_in_range(input, start, stop, expected):
     assert max_in_range(input, start, stop) == expected
 
+
+def test_incorrect_type():
+    with pytest.raises(TypeError):
+        rotate_and_reverse('dsd', 1)
+
+    with pytest.raises(TypeError):
+        rotate_and_reverse([1,2,3], 'g')
+
+@pytest.mark.parametrize('input, number, expected', [
+    ([1, 5, 8, 90, 85, 27, 30, 45], 5, ([90, 85, 27, 30, 45, 1, 5, 8], [8, 5, 1, 45, 30, 27, 85, 90])),
+    ([1, 2, 3], 3, ([1, 2, 3], [3, 2, 1])),
+    ([1, 2, 3, 4], 1, ([4, 1, 2, 3], [3, 2, 1, 4])),
+    ([10], 1, ([10], [10])),
+    ([1,2,3], 6, None),
+    ([], 1, [])
+
+])
+
+def test_rotate_and_reverse(input, number, expected):
+    assert rotate_and_reverse(input, number) == expected
 
 

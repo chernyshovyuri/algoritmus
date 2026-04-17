@@ -21,11 +21,6 @@ def max_in_range(array: list, start: int,  end: int ) -> str| list| None:
 #O(n) = 1 + (n+1) + 1 + 1 + 1 + 1 = 1 + (n+1) + 4 =  1 +n + 1 + 4 = n + 6 = O(n)
 
 
-collection = [1, 5, 8, 90, 85, 27, 30, 45, 65, 70, 73, 51, 95, 100, 120, 130]
-
-print(max_in_range(collection, 5, 10))
-
-
 def rotate_and_reverse(collection: list, k: int) -> list | None:
     if not isinstance(collection, list) or not isinstance(k, int):
         raise TypeError()
