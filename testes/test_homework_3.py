@@ -1,6 +1,6 @@
 import pytest
 
-from src.homework_3 import max_in_range, rotate_and_reverse
+from src.homework_3 import max_in_range, rotate_and_reverse, reverse_even_elements, plus_one
 
 
 def test_incorrect_tape():
@@ -51,3 +51,35 @@ def test_rotate_and_reverse(input, number, expected):
     assert rotate_and_reverse(input, number) == expected
 
 
+def test_incorrect_tupe():
+    with pytest.raises(TypeError):
+        reverse_even_elements('fdf')
+
+@pytest.mark.parametrize("input, key, expected", [
+    ([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0, [1, 6, 3, 4, 5, 2]),
+    ([1, 10, 3, 8, 5, 6], lambda x: x % 2 == 0, [1, 6, 3, 8, 5, 10]),
+    ([1, 2, 3], lambda x: False, [1, 2, 3]),
+    ([], lambda x: True, [])
+
+])
+
+def test_reverse_even_elements(input, key, expected):
+    assert reverse_even_elements(input, key=key) == expected
+
+
+def test_incorrect_tupe():
+    with pytest.raises(TypeError):
+        plus_one('d')
+
+@pytest.mark.parametrize("input, expected", [
+    ([], []),
+    ([1, 2, 3], [1, 2, 4]),
+    ([9], [1, 0]),
+    ([9,9,9], [1,0,0,0]),
+    ([1, 8, 9], [1, 9, 0]),
+    ([1, 0, 0, 0], [1, 0, 0, 1]),
+
+])
+
+def test_plus_one(input, expected):
+    assert plus_one(input) == expected

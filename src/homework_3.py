@@ -21,7 +21,7 @@ def max_in_range(array: list, start: int,  end: int ) -> str| list| None:
 #O(n) = 1 + (n+1) + 1 + 1 + 1 + 1 = 1 + (n+1) + 4 =  1 +n + 1 + 4 = n + 6 = O(n)
 
 
-def rotate_and_reverse(collection: list, k: int) -> list | None:
+def rotate_and_reverse(collection: list, k: int) -> tuple | list | None:
     if not isinstance(collection, list) or not isinstance(k, int):
         raise TypeError()
 
@@ -81,9 +81,6 @@ def reverse_even_elements(array: list, key = lambda x: True) -> list | None:
 # O(n) = 1 + n + 1 + 1 + 1 + (n/2) + 1 + 1 + 1 +1 + 1 + 1 + n + 1 + 1 + 1 + 1 + 1 + 1 =
 # = 1 + n + 3 + (n/2) + 6 + n + 6 = O(n)
 
-
-collection = [10, 3, 8, 5, 2, 7, 4, 9, 6]
-print(reverse_even_elements(collection, key = lambda x: x % 2== 0))
 
 
 def plus_one(array: list) -> list | None:
