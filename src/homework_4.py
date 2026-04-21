@@ -45,6 +45,8 @@ humanoidy = [
 print(bubble_sort(humanoidy, key = lambda human: human.age, order_by = lambda age1, age2: age1 > age2))
 print('='*20)
 
+#O(n) = 1 + (n-1) + (n-i-1) + 1 + 1 + 1 + 1 +1 + 1 + 1 = 1 + (n-1) + (n-i-1) + 7 = O(n**2)
+
 
 
 def adjacent_swaps(collection: list, key = lambda obj: obj, order_by = lambda x , y: x < y):
@@ -84,6 +86,12 @@ collection, counter, result_time = adjacent_swaps(humanoidy, key = lambda human:
 print(collection)
 print(f' Counter = {counter}')
 print(f' Result Time = {result_time}')
+
+#O(n) = 1 + 1 + 1 + (n-1) + 1 + (n + i + 1) + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 = 3 + (n-1) + 1 +
+# (n + i + 1) + 14 = O(n**2)
+
+
+
 
 
 
